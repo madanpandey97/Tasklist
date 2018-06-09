@@ -22,7 +22,7 @@ TaskList is  Application type of blog where you can post you question
 
 # Installation
 
-You can either Download it from github or clone into your local directory, run following command from your terminal 
+You can either Download it from github or clone into your local directory, run following command from your terminal <br>
 ''' git clone https://github.com/madanpandey97/Tasklist.git '''
 
 
