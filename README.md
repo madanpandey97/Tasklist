@@ -32,9 +32,16 @@ Make Virtualenv with python 3.5 on you System. Please make sure you have virtual
 Run the following command in sequence
 ```cd Tasklist <br>
    pip install -r requirements.txt<br>
-  python manage.py migrate<br>
-  python manage.py runserver 
+   python manage.py migrate<br>
+    python manage.py runserver 
   ```
+# Project Overview
+Some screenshot of thr project 
 
+
+<p align="center">
+  
+<a href="https://ibb.co/enBeTT"><img src="https://preview.ibb.co/grd4v8/Screenshot_from_2018_06_09_17_21_42.png" alt="Screenshot_from_2018_06_09_17_21_42" border="0"></a>
+</p>
 
 
