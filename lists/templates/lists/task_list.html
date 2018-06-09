@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block body %}
+ {% block js %}
+
+</script>
+{% endblock %}
+
+  <h2 class="title">TaskList</h2>
+
+  {% if messages %}
+<ul>
+   {% for message in messages %}
+     <li>{{ message }}</li>
+   {% endfor %}
+</ul>
+{% endif %}
+
+
+    {% for task in taskli %}
+
+    <div class="row">
+  <div class="col-sm-12 col-md-10">
+    <div class="thumbnail">
+      <div class="caption">
+        <h5><b><em>{{task.description}}</em></b></h5>
+        <p><b>Description :</b> &nbsp;{{task.content}}</p>
+        <p><b>Level :</b> &nbsp; {{task.tesk_medium}}</p>
+        <p><b>Asked by : </b>{{task.creator}}</p>
+        <p><b>Mark done by : </b>{{task.answered_by}}</p>
+        <p>status: {{task.mark_done}}</p>
+         <p>Created On : {{task.created_at}}</p>
+
+  {% if user.is_authenticated and user == task.creator %}
+  <ul class="list-inline">
+  <li>
+<form action="{% url 'lists:status' task.id%}">
+<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+</form>
+  <li>
+<form action="{% url 'lists:update' task.id%}">
+<button type="submit" class="btn btn-success confirm-delete" ><span class="glyphicon glyphicon-pencil"></span></button></form></li>
+
+  <li>
+<form action="{% url 'lists:delete' task.id%}">
+<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form></li>
+
+</ul>
+
+    {% endif %}  
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+                      <!-- <p>{{task.description}}</p>
+                      <h3>{{task.creator}}</h3>
+                      <h4>{{task.created_at}}</h4>
+                       <h4>{{task.finished_at}}</h4> -->
+{% endfor %} 
+
+
+{% if taskli.has_other_pages %}
+  <ul class="pagination">
+    {% if taskli.has_previous %}
+      <li><a href="?page={{ taskli.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in taskli.paginator.page_range %}
+      {% if taskli.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if taskli.has_next %}
+      <li><a href="?page={{ taskli.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+{% endblock %}

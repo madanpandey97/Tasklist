@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block js %}
+<script src="{% static 'lists/js/jquery.tablesorter.min.js' %}"></script>
+<script type="text/javascript" id="js">
+
+function switchVisible() {
+            if (document.getElementById('Div1')) {
+
+                if (document.getElementById('Div1').style.display == 'none') {
+                    document.getElementById('Div1').style.display = 'block';
+                    document.getElementById('Div2').style.display = 'none';
+                }
+                else {
+                    document.getElementById('Div1').style.display = 'none';
+                    document.getElementById('Div2').style.display = 'block';
+
+          
+                }
+            }
+
+
+}
+
+$(document).ready(function(){
+        $("#mybutton").click(function(){
+            $(this).text($(this).text() == 'Hide Complete Task' ? 'Show All Task' : 'Hide Complete Task');
+        });
+    });
+</script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'lists/css/table.css' %}"> {% endblock %}
+
+{% block body %}
+<section class="header">
+  <h2 class="title">Tasklist overview</h2>
+  
+  <div class="row">
+    <div class="u-full-width">
+      <h6 class="docs-header todolist-overview">All your tasklists</h6>
+     
+    <button type="button"  id="mybutton" onclick="switchVisible();">Hide Complete Task</button>
+      <div id="Div1">
+      <table id="todolist-overview-table" class="tablesorter">
+        <thead>
+          <tr>
+            <th class='todolist-title'>Todolist title</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th class="datetime">Created at</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasklist_all %}
+          <tr>
+            <td class='todolist-title'><a href="">{{ task.description }}</a></td>
+            
+            <td>
+<form action="{% url 'lists:update' task.id%}">
+<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+</form>
+            </td>
+            <td><form action="{% url 'lists:delete' task.id%}">
+<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+</form></td>
+            <td class='todolist-title'>{{task.created_at}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+<div id="Div2" style="display: none;">
+  
+<table id="todolist-overview-table" class="tablesorter">
+        <thead>
+          <tr>
+            <th class='todolist-title'>Todolist title</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th class="datetime">Created at</th>
+            <th >Done By</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasklist_completed %}
+          <tr>
+            <td class='todolist-title'><a href="">{{ task.description }}</a></td>
+            
+            <td>
+<form action="{% url 'lists:update' task.id%}">
+<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+</form>
+            </td>
+            <td><form action="{% url 'lists:delete' task.id%}">
+<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+</form></td>
+              <td class='todolist-title'>{{task.created_at}}</td>
+              <td class='todolist-title'>{{task.answered_by}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+</div>
+
+
+    </div>
+  </div>
+</section>
+{% endblock %}
