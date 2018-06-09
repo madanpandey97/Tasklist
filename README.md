@@ -40,12 +40,5 @@ Some screenshot of thr project
 
 
 <p align="center">
-  
-<a href="https://ibb.co/enBeTT"><img src="https://preview.ibb.co/grd4v8/Screenshot_from_2018_06_09_17_21_42.png" alt="Screenshot_from_2018_06_09_17_21_42" border="0"></a>
-</p>
-
-
-
-<p align="center">
-   <a href="https://ibb.co/jVn8No"><img src="https://preview.ibb.co/mA6eTT/Screenshot_from_2018_06_09_17_25_07.png" alt="Screenshot_from_2018_06_09_17_25_07" border="0"></a>
+  <a href="https://ibb.co/h3Gzv8"><img src="https://preview.ibb.co/g1XHho/Screenshot_from_2018_06_09_17_29_29.png" alt="Screenshot_from_2018_06_09_17_29_29" border="0"></a>
 </p>
