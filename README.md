@@ -36,7 +36,7 @@ Run the following command in sequence
     python manage.py runserver 
   ```
 # Project Overview
-Some screenshot of thr project 
+screenshot of the project 
 
 
 <p align="center">
