@@ -38,13 +38,15 @@ Run the following command in sequence
 # Installation
 To Run testcase please copy paste the following command to your terminal <br>
 for testing list app <br>
- 	```
- 	python manage.py test lists.tests.TaskTests```
- <br>for testing account app<br>
- ```
- 	python manage.py test accounts.tests
 
- ```
+ 	```python manage.py test lists.tests.TaskTests```
+   
+ <br>for testing account app<br>
+ 
+ 
+ ```python manage.py test accounts.tests```
+ 
+ 
 # Project Overview
 screenshot of the project 
 
