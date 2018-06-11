@@ -48,10 +48,11 @@ $(document).ready(function(){
       <table id="todolist-overview-table" class="tablesorter">
         <thead>
           <tr>
-            <th class='todolist-title'>Todolist title</th>
+            <th class='todolist-title'>Tasklist title</th>
             <th>Update</th>
             <th>Delete</th>
             <th class="datetime">Created at</th>
+                <th >Done By</th>
           </tr>
         </thead>
         <tbody>
@@ -68,6 +69,7 @@ $(document).ready(function(){
 <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 </form></td>
             <td class='todolist-title'>{{task.created_at}}</td>
+              <td class='todolist-title'>{{task.answered_by}}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -78,7 +80,7 @@ $(document).ready(function(){
 <table id="todolist-overview-table" class="tablesorter">
         <thead>
           <tr>
-            <th class='todolist-title'>Todolist title</th>
+            <th class='todolist-title'>Tasklist title</th>
             <th>Update</th>
             <th>Delete</th>
             <th class="datetime">Created at</th>

@@ -27,28 +27,47 @@
         <p><b>Description :</b> &nbsp;{{task.content}}</p>
         <p><b>Level :</b> &nbsp; {{task.tesk_medium}}</p>
         <p><b>Asked by : </b>{{task.creator}}</p>
-        <p><b>Mark done by : </b>{{task.answered_by}}</p>
-        <p>status: {{task.mark_done}}</p>
+        {% if task.mark_done%}
+        <p><b>Mark  : </b> Done <b>by :</b> {{task.answered_by}}</p>
+        
+        {% else  %}
+          <p> <b>Mark  :</b> Not Done </p>
+        {% endif %}
+          
          <p>Created On : {{task.created_at}}</p>
+       
 
-  {% if user.is_authenticated and user == task.creator %}
+  
   <ul class="list-inline">
+  {% if task.mark_done%}
   <li>
-<form action="{% url 'lists:status' task.id%}">
-<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
-</form>
+    
+    <button type="submit" class="btn btn-primary disabled" ><span class="glyphicon glyphicon-ok"></span></button>
+   
+    </li>
+{% else %}
+     <li>
+    <form action="{% url 'lists:status' task.id%}">
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button>
+    </form>
+    </li>
+{% endif %}  
+{% if user.is_authenticated and user == task.creator %}
+
   <li>
+
 <form action="{% url 'lists:update' task.id%}">
 <button type="submit" class="btn btn-success confirm-delete" ><span class="glyphicon glyphicon-pencil"></span></button></form></li>
 
   <li>
 <form action="{% url 'lists:delete' task.id%}">
 <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form></li>
+ {% endif %}  
+
 
 </ul>
 
-    {% endif %}  
-
+   
       </div>
 
 

@@ -31,4 +31,12 @@ class Todo(models.Model):
     def __str__(self):
         return self.description
 
-    
+    def close(self):
+        self.is_finished = True
+        self.finished_at = timezone.now()
+        self.save()
+
+    def reopen(self):
+        self.is_finished = False
+        self.finished_at = None
+        self.save()
