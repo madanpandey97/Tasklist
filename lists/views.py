@@ -31,7 +31,7 @@ def index(request):
 
 @login_required
 def create_task(request):
-    """function of creating task list with task, title task description and task level"""
+    """function of creating task list with task title, task description and task level"""
     all_task_list = Todo.objects.all()
     form = TaskForm()
     if request.method == 'POST':
