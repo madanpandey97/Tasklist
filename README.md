@@ -41,7 +41,7 @@ for testing list app <br>
  	```
  	python manage.py test lists.tests.TaskTests
  
- <br>```
+ ```<br>
  for testing account app<br>
  ```
  	python manage.py test accounts.tests
