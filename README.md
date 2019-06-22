@@ -1,5 +1,5 @@
 # Tasklist
-TaskList is  Application type of blog where you can post you question 
+TaskList is written in django for manageing status of question and answer. Any User can create account and post the relevent question and a user which know the status can mark and unmake depending on their choice. A user can only update delete and create Task on their dashboard, but he will able to see all the Task posted by other user.TaskList is  Application type of blog where you can post you question 
 
 
 
